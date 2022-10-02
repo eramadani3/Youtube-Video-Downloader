@@ -16,18 +16,18 @@ def select_path():
 
 
 def download_file():
-    # get user path
+    #get user path
     get_link = link_field.get()
-    # get selected path
+    #get selected path
     user_path = path_label.cget("text")
-    # Download video
-    filename = YouTube(get_link).streams.get_audio_only().download()
-    clip = VideoFileClip(filename)
-    clip.audio.write_audiofile(filename[:-4] + ".mp3")
-    clip.close()
-    # move file to selected directory
-    shutil.move(filename, user_path)
-    screen.title('Download complete! Download another file')
+    screen.title('Downloading...')
+    #Download Video
+    mp4_video = YouTube(get_link).streams.get_highest_resolution().download()
+    vid_clip = VideoFileClip(mp4_video)
+    vid_clip.close()
+    #move file to selected directory
+    shutil.move(mp4_video, user_path)
+    screen.title('Download Complete! Download Another File...')
 
 
 screen = Tk()
