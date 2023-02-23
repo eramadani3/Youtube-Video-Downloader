@@ -11,8 +11,8 @@ from pytube import YouTube
 # Functions
 def select_path():
     # Allows user to selct a path from the exlorer
-    path = filedialog.askdirectory()
-    path_label.config(text=path)
+    video_path = filedialog.askdirectory()
+    path_label.config(text=video_path)
 
 
 def download_file():
